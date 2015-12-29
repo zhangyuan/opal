@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.evcheung.apps</groupId>
-    <artifactId>opal</artifactId>
+    <artifactId>opal-${artifactSuffix}</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -25,4 +25,37 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <artifactSuffix>dev</artifactSuffix>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sit</id>
+            <properties>
+                <artifactSuffix>sit</artifactSuffix>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>uat</id>
+            <properties>
+                <artifactSuffix>uat</artifactSuffix>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <artifactSuffix>prod</artifactSuffix>
+            </properties>
+        </profile>
+    </profiles>
 </project>
