@@ -28,24 +28,33 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>local</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <artifactSuffix>dev</artifactSuffix>
-            </properties>
-        </profile>
 
-        <profile>
-            <id>sit</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/src/main/resources/local</directory>
+                    </resource>
+                </resources>
+            </build>
+
             <properties>
-                <artifactSuffix>sit</artifactSuffix>
+                <artifactSuffix>local</artifactSuffix>
             </properties>
         </profile>
 
         <profile>
             <id>uat</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/uat</directory>
+                    </resource>
+                </resources>
+            </build>
             <properties>
                 <artifactSuffix>uat</artifactSuffix>
             </properties>
@@ -53,6 +62,13 @@
 
         <profile>
             <id>prod</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/prod</directory>
+                    </resource>
+                </resources>
+            </build>
             <properties>
                 <artifactSuffix>prod</artifactSuffix>
             </properties>
